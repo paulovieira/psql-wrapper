@@ -56,6 +56,6 @@ This module will simply construct the string to be used with `execSync`. It won'
 
 The following extra options are available:
 
- - psqlPath: the path to the `psql` command line utility. Might be necessary if you have several versions of postgres available. Default: `psql`.
- - displayShellCommand: if `true` the command to be passed to `execSync` will be displayed. Default: `true`.
+ - `psqlPath`: the path to the `psql` command line utility. Might be necessary if you have several versions of postgres available. Default: `psql`.
+ - `displayShellCommand`: if `true` the command to be passed to `execSync` will be displayed. Default: `true`.
  
