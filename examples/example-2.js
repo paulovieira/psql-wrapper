@@ -16,5 +16,6 @@ console.log(data);
 var out = Psql({
     "command": "select id, name, slug from initiatives limit 3",
     "output": "examples/data.csv",
-    "no-align": true
+    "no-align": true,
+    displayShellCommand: false
 });
