@@ -2,9 +2,9 @@
 
 ### Description
 
-Simple wrapper around the `psql` command line using node's [`execSync`](https://nodejs.org/api/child_process.html#child_process_child_process_execsync_command_options).
+Simple wrapper around the `psql` command line utility using node's [`execSync`](https://nodejs.org/api/child_process.html#child_process_child_process_execsync_command_options).
 
-Useful to create your own sql runner, or if you need to make a simple query to a postgres database without the complexity of the [`pg`](https://github.com/brianc/node-postgres) module (the result can be saved to a .cvs file)
+Useful to create your own sql runner, or if you need to make a simple query to a postgres database without the complexity of the [`pg`](https://github.com/brianc/node-postgres) module (the result of the query can be saved to a .cvs file, for instance).
 
 ### Install
 
@@ -17,26 +17,23 @@ npm install --save psql-wrapper
 ```js
 
 // the module exports a function
-var Psql = require("psql-wrapper.js");
+var Psql = require('psql-wrapper.js');
 
-// options that won't change can be set once with the 'configure' method 
+// options that won't change can be set once with 'configure'
 Psql.configure({
-    dbname: "my_db"
+    "dbname": "my_db"
 });
 
 // to execute psql (via child_process' execSync), call the exported function
-var out = Psql({
-    command: "select c1,c2,c3 from some_table",
-    output: "test.csv",
-    "no-align": true,
-    "tuples-only": true
+var data = Psql({
+    "command": "select c1,c2,c3 from some_table"
 });
-console.log(out);
+console.log(data);
 
 // we can also save the results using the right combination of options from psql
 var out = Psql({
-    command: "select c1,c2,c3 from some_table",
-    output: "out.csv",
+    "command": "select c1,c2,c3 from some_table",
+    "output": "data.csv",
     "no-align": true,
     "tuples-only": true
 });
