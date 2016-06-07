@@ -59,5 +59,7 @@ This module will simply construct the string to be used with `execSync`. It won'
 The following extra options are available:
 
  - `psqlPath`: the path to the `psql` command line utility. Might be necessary if you have several versions of postgres available. Default: `psql`.
+ - `checkStderr`: verify if stderr contains the substring 'ERROR:' and throw an error. This is useful to abort scripts with SQL syntax errors. Default: `true`.
+ - `displayShellCommand`: display the command to be passed to execSync. Default: `true`.
  
  

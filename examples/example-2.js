@@ -9,13 +9,28 @@ Psql.configure({
 var data = Psql({
     "command": "SELECT id, name, slug FROM initiatives LIMIT 3"
 });
-console.log(data);
+console.log("data: ", data);
 
 // we can also save the results using the right combination of options from psql;
 // in this example the last line should be deleted
-Psql({
-    "command": "SELECT id, name, slug FROM initiatives LIMIT 3",
-    "output": "examples/data.csv",
-    "no-align": true,
-    displayShellCommand: false
-});
+try {
+	Psql({
+	    "command": "SELECT id, name, slug FROM initiatives LIMIT 3",
+	    "output": "examples/data.csv",
+	    "no-align": true,
+	    displayShellCommand: false
+	});
+}
+catch(err){
+}
+
+
+try {
+	var out = Psql({
+	    "file": "examples/script.sql",
+	    checkStderr: true
+	});
+	console.log(out)
+}
+catch(err){
+}
