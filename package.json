@@ -1,6 +1,6 @@
 {
   "name": "psql-wrapper",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Simple wrapper around the psql command line utility (postgres)",
   "main": "lib/index.js",
   "scripts": {
