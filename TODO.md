@@ -5,3 +5,5 @@
 - document: options must be given as string (except for the boolean case), but  can be given in more permissive form (camelCase, etc)
 - document: the option abortOnError was removed
 - document: the only default psql option is "--set=ON_ERROR_STOP=on" (this option can be oveeriden to use other psql variables, but it's advisable to keep this one)
+
+

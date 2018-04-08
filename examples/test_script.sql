@@ -7,7 +7,7 @@ insert into test_table(id, namex) values(1, 'a2');
 */
 
 
-CREATE OR REPLACE FUNCTION  raise_exception_invalid_or_missing_args(function_name txext, arg_name text)
+CREATE OR REPLACE FUNCTION  raise_exception_invalid_or_missing_args(function_name text, arg_name text)
 RETURNS void 
 AS $fn$
 
