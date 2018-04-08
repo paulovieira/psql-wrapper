@@ -1,21 +1,43 @@
-var Psql = require('../lib');
+let Path = require('path');
+let Psql = require('../lib');
 
-// options that won't change can be set once with 'configure'
-Psql.configure({
-    "dbname": "my_db"
+// execute psql (via child_process' execSync)
+/*
+console.log('first query...');
+
+let output = Psql({
+    'command': 'SELECT now();'
 });
+console.log(output);
 
-// to execute psql (via child_process' execSync), call the exported function
-var data = Psql({
-    "command": "SELECT c1, c2, c3 FROM some_table"
-});
-console.log(data);
 
-// we can also save the results using the right combination of options from psql
+// the output can also be saved to a file using the right combination of options from psql;
 // in this example the last line should be deleted
+let outputFile = Path.resolve(`data_${ Date.now() }.csv`);
+
+console.log('second query...');
+
 Psql({
-    "command": "SELECT c1, c2, c3 FROM some_table",
-    "output": "data.csv",
-    "no-align": true,
+    'command': 'SELECT version()',
+    'output': outputFile,
+    'no-align': true,
     displayShellCommand: false
 });
+
+console.log('output was saved to ' + outputFile)
+*/
+
+
+/*
+let output = Psql({
+    "command": "select pg_sleep(1); insert into test_table(id, namex) values(1, 'xyz');",
+    "dbname": "test_db"
+}, { psqlPath: '/usr/bin/psql', abortOnError: false});
+*/
+
+let output = Psql({
+    "file": Path.resolve('test_script.sql'),
+    "dbname": "test_db",
+});
+
+//console.log(output);
